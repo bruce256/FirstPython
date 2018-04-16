@@ -1,6 +1,7 @@
 # !/usr/bin/python3
 
 import tkinter
+import random
 
 print("你好，世界")
 
@@ -45,6 +46,12 @@ fo = open("a.txt", "r")
 lines = fo.readlines()
 print("所有数据", lines)
 
-top = tkinter.Tk()
+print(random.randint(1, 100))
+
+list1 = [1, 3, 2]
+list1.sort()
+print(list1)
+
+# top = tkinter.Tk()
 # 进入消息循环
-top.mainloop()
+# top.mainloop()

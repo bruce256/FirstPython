@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import
+import pymysql
 
 # 打开数据库连接
 db = pymysql.connect("localhost", "root", "", "test")

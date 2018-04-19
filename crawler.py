@@ -3,12 +3,22 @@
 
 import requests
 from bs4 import BeautifulSoup
+from requests import HTTPError
 
 DOWNLOAD_URL = 'http://movie.douban.com/top250'
 
 
 def download_page(url):
-	data = requests.get(url).content
+	print(url)
+	try:
+		data = requests.get(url).content
+	except HTTPError as err:
+		print(err.__traceback__)
+	except ConnectionError as err:
+		print(err.__traceback__)
+	except TimeoutError as err:
+		print(err.__traceback__)
+
 	return data
 
 
@@ -25,9 +35,8 @@ def parse_html(html):
 
 def main():
 	counter = 0
-	start = 0
 	while counter < 10:
-		start = start + counter * 25
+		start = 25 * counter
 		html = download_page(DOWNLOAD_URL + '?start=' + start.__str__())
 		parse_html(html)
 		counter += 1

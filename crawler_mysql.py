@@ -8,14 +8,14 @@ from pymysql import Error
 
 DOWNLOAD_URL = 'http://movie.douban.com/top250'
 # 打开数据库连接
-db = pymysql.connect(host="localhost",
-                     user="root",
-                     password="",
-                     db="test",
-                     charset="utf8")
+connection = pymysql.connect(host="localhost",
+                             user="root",
+                             password="",
+                             db="test",
+                             charset="utf8")
 
 # 使用 cursor() 方法创建一个游标对象 cursor
-cursor = db.cursor()
+cursor = connection.cursor()
 
 
 def download_page(url):
@@ -41,11 +41,11 @@ def insert(name, url):
 		# 执行sql语句
 		cursor.execute(sql)
 		# 提交到数据库执行
-		db.commit()
+		connection.commit()
 	except Error as err:
 		print("Error: unable to insert data", err.__traceback__)
 		# 如果发生错误则回滚
-		db.rollback()
+		connection.rollback()
 
 
 def main():
@@ -56,7 +56,7 @@ def main():
 		parse_html(html)
 		counter += 1
 	# 关闭数据库连接
-	db.close()
+	connection.close()
 
 
 if __name__ == '__main__':

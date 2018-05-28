@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 df = pd.read_excel("/study/python/income.xlsx")
 print(df.head(10))
@@ -18,3 +19,5 @@ plt = present_year.plot(kind="bar").get_figure()
 plt.savefig("/study/present_bar.jpg")
 plt = present_year.plot(kind="bar", stacked=True).get_figure()
 plt.savefig("/study/present_bar_stacked.jpg")
+
+

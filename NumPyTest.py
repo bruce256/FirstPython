@@ -8,4 +8,4 @@ print("x:\n{}".format(x))
 eye = np.eye(10)
 print("NumPy array:\n{}".format(eye))
 
-
+print("NumPy array:\n{}".format(np.random.randn(1000, 4)[:200]))

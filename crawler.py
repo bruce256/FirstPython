@@ -23,7 +23,7 @@ def download_page(url):
 
 
 def parse_html(html):
-	soup = BeautifulSoup(html)
+	soup = BeautifulSoup(html, "html.parser")
 	movie_list_soup = soup.find('ol', attrs={'class': 'grid_view'})
 	for movie_li in movie_list_soup.find_all('li'):
 		detail = movie_li.find('div', attrs={'class': 'hd'})

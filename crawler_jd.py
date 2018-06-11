@@ -25,8 +25,8 @@ def download_page(url):
 def parse_html(html):
 	soup = BeautifulSoup(html, "html.parser")
 	book_list_soup = soup.find_all('div', attrs={'class': 'p-detail'})
-	for book_li in book_list_soup:
-		a_tag = book_li.find('a', attrs={'class': 'p-name'})
+	for book_div in book_list_soup:
+		a_tag = book_div.find('a', attrs={'class': 'p-name'})
 		print('书名 ： ' + a_tag['title'] + '\t链接 ： ' + HTTP_ + a_tag['href'])
 	next_button = soup.find('a', attrs={'class': 'pn-next'})
 	return next_button['href']

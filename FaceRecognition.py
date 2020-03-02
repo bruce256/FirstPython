@@ -1,10 +1,8 @@
 import cv2
-import re
-import os
-import bs4
+import face_recognition
 
 # 2.读取图片
-filename = '/Users/LvSheng/Pictures/WechatIMG43.jpeg'
+filename = '/Users/LvSheng/Pictures/lvsheng1.jpeg'
 image = cv2.imread(filename)
 
 # 3.加载人脸模型 级联分类器
@@ -25,7 +23,12 @@ for (x, y, w, h) in faces:
 cv2.imshow('Jim', image)
 
 # 8.暂停窗口
-cv2.waitKey(0)
+cv2.waitKey(1)
 
 # 9.销毁窗口
 cv2.destroyAllWindows()
+
+
+encodings = face_recognition.face_encodings(image)
+face_recognition.compare_faces()
+print(encodings)

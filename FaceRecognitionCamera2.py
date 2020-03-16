@@ -21,6 +21,7 @@ while True:
     # print(ret)
 
     unknown_encodings = face_recognition.face_encodings(image)
+    print(unknown_encodings)
     faces = face_recognition.face_locations(image)
 
     # 8.标记人脸

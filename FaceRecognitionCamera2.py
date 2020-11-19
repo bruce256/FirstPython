@@ -35,6 +35,7 @@ while True:
             if result:
                 cv2.putText(image, "lvsheng", (faces[0][3], faces[0][0]), cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 0))
 
+    # 将图像显示在窗口上
     cv2.imshow('Jim', image)
 
     # 暂停窗口
